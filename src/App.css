@@ -1,38 +1,108 @@
 .App {
   text-align: center;
+  position: relative;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.header h1{
+  display: inline-block;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.github {
+  margin-left: 25px;
+  display: inline-block;
+  color: #211f1f;
+  font-size: 25px;
+  transition: color .123s linear;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.github:hover {
+  color: rgba(33,31,31,.7);
 }
 
-.App-link {
-  color: #61dafb;
+.collection {
+  margin: .5rem auto 1rem auto;
+  max-width: 400px;
 }
 
-@keyframes App-logo-spin {
+.collection-header {
+  position: relative;
+  padding: 0 !important;
+}
+
+.collection-header a {
+  padding-bottom: 3px;
+  display: inline-block;
+  font-size: 2.2rem;
+  line-height: 110%;
+  margin: 1rem 0 .912rem 0;
+  color: rgba(0,0,0,0.87);
+  font-weight: 400;
+  border-bottom: 1px solid transparent;
+  transition: border-bottom-color .125s linear;
+}
+
+.collection-header a:hover {
+  border-bottom-color: #000;
+}
+
+.remove-card {
+  cursor: pointer;
+  position: absolute;
+  right: 4px;
+  top: 3px;
+}
+
+.remove-card i {
+  font-size: 1rem;
+}
+
+.hideAnimation {
+  animation: removeScale .23s ease-in-out forwards;
+}
+
+@keyframes removeScale {
   from {
-    transform: rotate(0deg);
+    transform: scale(1);
   }
   to {
-    transform: rotate(360deg);
+    transform: scale(0);
   }
 }
+
+.detail {
+  position: relative;
+}
+
+.detail-info {
+  margin-top: 5px;
+  margin-left: 25px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.detail-info li {
+  font-size: 14px;
+  
+}
+
+.detail-info li:not(:last-child) {
+  padding-right: 75px;
+}
+
+.detail-info li span {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.detail-back {
+  position: absolute;
+  left: 0;
+  top: 20px;
+}
+
+.notfound {
+  position: relative;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
