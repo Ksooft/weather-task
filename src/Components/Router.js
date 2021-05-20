@@ -7,8 +7,8 @@ const Router = () => {
     return (
         <BrowserRouter>
             <Switch>
-                <Route exact path='/' component={App} />
-                <Route path='/:city' render={props => <DetailCard {...props} check={props} />} />
+                <Route exact path='/weather-task' component={App} />
+                <Route path='/weather-task/:city' render={props => <DetailCard {...props} check={props} />} />
             </Switch>
         </BrowserRouter>
     )

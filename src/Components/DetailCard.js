@@ -7,7 +7,7 @@ const DetailCard = ({ check }) => {
     const [infoCity, setInfoCity] = useState({})
     const [loading, setLoading] = useState(true)
     const propsCity = check.match.params.city
-    const namesFromLs = JSON.parse(localStorage.getItem('cityNames'))
+    const namesFromLs = JSON.parse(localStorage.getItem('cityNames')) ? JSON.parse(localStorage.getItem('cityNames')) : []
     const isThere = namesFromLs.includes(propsCity)
     const getOneCity = (city) => {
         setLoading(true)
@@ -31,7 +31,7 @@ const DetailCard = ({ check }) => {
         const month = new Date().toLocaleString('en', { month: 'long' })
         return (
             <div className="container detail App">
-                <Link to="/" className="detail-back"><i className="material-icons">arrow_back</i></Link>
+                <Link to="/weather-task" className="detail-back"><i className="material-icons">arrow_back</i></Link>
                 <h1 style={{ textAlign: 'center' }}>React Weather App</h1>
                 {loading ? <Preloader />
                     : <DetailCardContent day={day} month={month} infoCity={infoCity} nameCity={propsCity} />}
