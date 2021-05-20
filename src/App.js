@@ -28,6 +28,7 @@ function App() {
         setValue('')
       })
       .catch(error => {
+        setLoading(false)
         return alert(`Возникла ошибка: ${error.status}, текст ошибки: ${error.statusText}`)
       })
   }
