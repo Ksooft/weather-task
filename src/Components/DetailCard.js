@@ -40,7 +40,7 @@ const DetailCard = ({ check }) => {
     }
     return (
         <div className="notfound">
-            <Link to="/" className="detail-back"><i className="material-icons">arrow_back</i></Link>
+            <Link to="/weather-task" className="detail-back"><i className="material-icons">arrow_back</i></Link>
             <h2 className="center-align red-text">There is not found page!</h2>
         </div>
     )

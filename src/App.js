@@ -10,6 +10,7 @@ function App() {
 
  const searchCity = (city, setValue) => {
    const ls = JSON.parse(localStorage.getItem('cityNames')) ? JSON.parse(localStorage.getItem('cityNames')) : []
+   city = city[0].toUpperCase() + city.slice(1).toLowerCase()
    setLoading(true)
     fetch(`https://weather-restful.herokuapp.com/weather/${city}`)
       .then(response => response.ok ? response.json() : Promise.reject(response))
@@ -28,6 +29,7 @@ function App() {
         setValue('')
       })
       .catch(error => {
+        setLoading(false)
         return alert(`Возникла ошибка: ${error.status}, текст ошибки: ${error.statusText}`)
       })
   }
