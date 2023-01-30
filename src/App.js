@@ -3,35 +3,39 @@ import React, { useState, useEffect } from 'react'
 import Search from './Components/Search'
 import Cards from './Components/Cards'
 import Preloader from './Components/Preloader'
+import ClosingPopup from './Components/ClosingPopup'
 
 function App() {
   const [cities, setCities] = useState([])
   const [loading, setLoading] = useState(false)
 
  const searchCity = (city, setValue) => {
-   const ls = JSON.parse(localStorage.getItem('cityNames')) ? JSON.parse(localStorage.getItem('cityNames')) : []
-   city = city[0].toUpperCase() + city.slice(1).toLowerCase()
-   setLoading(true)
-    fetch(`https://weather-restful.herokuapp.com/weather/${city}`)
-      .then(response => response.ok ? response.json() : Promise.reject(response))
-      .then(data => {
-        if (ls.length && ls.includes(city)) {
-          return alert('Данный город уже есть в списке')
-        }
-        const newObject = { city, ...data }
-        setCities(prevCities => {
-          const newCities = [...prevCities, newObject]
-          return newCities
-        })
-        updateLS(newObject, 'cities')
-        updateLS(city, 'cityNames')
-        setLoading(false)
-        setValue('')
-      })
-      .catch(error => {
-        setLoading(false)
-        return alert(`Возникла ошибка: ${error.status}, текст ошибки: ${error.statusText}`)
-      })
+   alert('cdn not working ☹')
+
+  // NOT WORKING 👇
+  //  const ls = JSON.parse(localStorage.getItem('cityNames')) ? JSON.parse(localStorage.getItem('cityNames')) : []
+  //  city = city[0].toUpperCase() + city.slice(1).toLowerCase()
+  //  setLoading(true)
+  //   fetch(`https://weather-restful.herokuapp.com/weather/${city}`)
+  //     .then(response => response.ok ? response.json() : Promise.reject(response))
+  //     .then(data => {
+  //       if (ls.length && ls.includes(city)) {
+  //         return alert('Данный город уже есть в списке')
+  //       }
+  //       const newObject = { city, ...data }
+  //       setCities(prevCities => {
+  //         const newCities = [...prevCities, newObject]
+  //         return newCities
+  //       })
+  //       updateLS(newObject, 'cities')
+  //       updateLS(city, 'cityNames')
+  //       setLoading(false)
+  //       setValue('')
+  //     })
+  //     .catch(error => {
+  //       setLoading(false)
+  //       return alert(`Возникла ошибка: ${error.status}, текст ошибки: ${error.statusText}`)
+  //     })
   }
 
   const updateLS = (cities, name) => {
@@ -98,7 +102,9 @@ function App() {
       <Search requestWeather={searchCity} />
       <Cards cities={cities} deleteCity={deleteCity} loading={loading} />
       {loading ? <Preloader /> : ''}
+      <ClosingPopup />
     </div>
+    
   );
 }
 

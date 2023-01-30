@@ -107,3 +107,34 @@
   margin: 0 auto;
 }
 
+.closing-app.open {
+  pointer-events: all;
+  opacity: 1;
+}
+
+.closing-app {
+  display: flex;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, .4);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  z-index: 10;
+  align-items: center;
+  justify-content: center;
+}
+
+.closing-text {
+  font-size: calc((1vw + 1vh) * 2.5);
+  text-transform: uppercase;
+  font-weight: bold;
+  text-shadow: 1px 0 1px #fff,
+    0 1px 1px #fff,
+    -1px 0 1px #fff,
+    0 -1px 1px #fff;
+}

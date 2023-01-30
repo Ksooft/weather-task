@@ -4,9 +4,20 @@ const Search = ({ requestWeather }) => {
     const [value, setValue] = useState('')
 
     const handleKey = e => {
-        if (e.key === 'Enter') {
+        if (e.key === 'Enter' && value) {
             requestWeather(value, setValue)
+        } else if (e.key === 'Enter' && !value) {
+            alert('Поле пустое')
         }
+    }
+    const AddCity = () => {
+        if (value) {
+            requestWeather(value, setValue)
+        } else {
+            alert('Поле пустое')
+        }
+        
+  
     }
 
     return (
@@ -19,7 +30,7 @@ const Search = ({ requestWeather }) => {
             </div>
             <div style={{ marginLeft: '0' }} className="col s2">
                 <button className="btn waves-effect waves-light light-blue darken-3" 
-                    type="submit" name="action" onClick={() => requestWeather(value, setValue)}>Add city
+                    type="submit" name="action" onClick={AddCity}>Add city
                     <i className="material-icons right">send</i>
                 </button>
             </div>
